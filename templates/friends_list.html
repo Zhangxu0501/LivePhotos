@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>好友列表</title>
+
+
+</head>
+<body>
+
+{% for f in  friends  %}
+    <a href="javascript:get('{{ f.uname }}')">{{ f.uname }}</a>
+{% endfor %}
+<script src="/static/Jquery.js">
+</script>
+
+<script >
+    function get(uname) {
+        $(document).ready(function () {
+            $.get('/show_photos/',{"uname":uname},function (data) {
+
+                document.write(data)
+
+            })
+
+        })
+
+    }
+</script>
+</body>
+</html>
+

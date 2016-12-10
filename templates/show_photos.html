@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>我的图片</title>
@@ -8,13 +8,34 @@
 <center>
 
 
-{% for pics in pic_list %}
+{% for pic in pic_list %}
 
-    {% for pic in  pics%}
-        <img src={{ pic }} height="400">
-    {% endfor %}
+
+    <img src={{ pic.0 }} height="400">
+    </br>
+    {% for comment in pic.1 %}
+        {{ comment.0 }}说:{{ comment.1 }}
+        </br>
+        {% endfor %}
+    </br>
+    <input type="text" id="{{ pic.0 }}"><button onclick="comment('{{ pic.0 }}')">评论</button>
     </br>
 {% endfor %}
 </center>
+
+<script src="/static/Jquery.js">
+</script>
+<script>
+function comment(pic) {
+    pic1="/Users/zhangxu/PycharmProjects/LivePhotos/photo"+pic;
+        $.get("/comment_photo/",{"pic":pic1,"comment":document.getElementById(pic).value},function (data) {
+
+            alert(data)
+
+        })
+
+
+}
+</script>
 </body>
 </html>

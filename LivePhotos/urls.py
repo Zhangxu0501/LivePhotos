@@ -18,8 +18,14 @@ from django.contrib import admin
 from photo.views import *
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'upload_photos',upload_photos),
+    url(r'^$',upload_photos),
     url(r'receive',receive),
     url(r'show_photos',show_photos),
+    url(r'login',login),
+    url(r'register',register),
+    url(r'add_friend',add_friend),
+    url(r"delete_friend",delete_friend),
+    url(r'friend_list',friend_list),
+    url(r'comment_photo',comment_photo)
 
 ]

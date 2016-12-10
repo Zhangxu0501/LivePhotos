@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上传图片</title>
+</head>
+<body>
+
+<div >
+
+    <center>
+<form action="/receive/" method="post" enctype="multipart/form-data">
+
+   <input type="file" name="pic"><input type="submit" value="提交">
+
+</form>
+
+        <form action="/add_friend/" method="get">
+        <input type="text" name="friend_name">
+            <input type="submit" value="添加好友">
+        </form>
+
+        </br>
+        <form action="/delete_friend/" method="get">
+        <input type="text" name="friend_name">
+            <input type="submit" value="删除好友">
+        </form>
+
+         </br>
+        <a href="/friend_list/">我的好友</a>
+        </br>
+
+        <a href="/show_photos/">浏览我的照片库</a>
+        </br>
+
+        </center>
+
+<div>
+</body>
+</html>
