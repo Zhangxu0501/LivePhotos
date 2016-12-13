@@ -2,31 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html">
+	<link rel="stylesheet" type="text/css" href="/static/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="/static/fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="/static/css/demo.css" />
+	<link rel="stylesheet" type="text/css" href="/static/css/component.css" />
     <title>好友列表</title>
-
-
 </head>
-<body>
+<body background="/static/images/1.jpg">
+<div class="container">
+	<header class="codrops-header">
+	<h1>Livephotos <span>*软件工程项目</span></h1>
+	</header>
+	<h2>好友列表</span></h2>
+	<section class="content">
+		<span class="input input--hoshi">
+			{% for f in  friends  %}
+				<a href="javascript:get('{{ f.uname }}')">{{ f.uname }}</a>
+			{% endfor %}
+			<script src="/static/Jquery.js">
+			</script>
 
-{% for f in  friends  %}
-    <a href="javascript:get('{{ f.uname }}')">{{ f.uname }}</a>
-{% endfor %}
-<script src="/static/Jquery.js">
-</script>
+			<script >
+				function get(uname) {
+					$(document).ready(function () {
+						$.get('/show_photos/',{"uname":uname},function (data) {
 
-<script >
-    function get(uname) {
-        $(document).ready(function () {
-            $.get('/show_photos/',{"uname":uname},function (data) {
+							document.write(data)
 
-                document.write(data)
+						})
 
-            })
+					})
 
-        })
-
-    }
-</script>
+				}
+			</script>
+		</span>
+	</section>
+</div>
 </body>
 </html>
 

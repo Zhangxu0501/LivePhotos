@@ -44,7 +44,7 @@ def show_photos(req):
         pi=list()
 
         pic=pics[i].pic
-        pic=pic.replace("/Users/zhangxu/PycharmProjects/LivePhotos/photo","")
+        pic=pic.replace(os.getcwd()+"/photo","")
         pi.append(pic)
 
         compent=list()
@@ -59,8 +59,12 @@ def show_photos(req):
 def login(req):
     uname=req.GET["username"]
     passwd=req.GET["password"]
+    req.session["123"]=uname
     try:
         user=User.objects.get(uname=uname)
+        print user
+        print user.passwd
+        print passwd
         if(user.passwd==passwd):
             req.session["uname"] = uname
             return render_to_response("main.html")

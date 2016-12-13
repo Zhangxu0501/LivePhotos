@@ -3,39 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>我的图片</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="/static/fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="/static/css/demo.css" />
+	<link rel="stylesheet" type="text/css" href="/static/css/component.css" />
 </head>
-<body>
-<center>
+<body background="/static/images/1.jpg">
+<div class="container">
+<header class="codrops-header">
+	<h1>Livephotos <span>*软件工程项目</span></h1>
+</header>
+	{% for pic in pic_list %}
+	<br>
+	<center>
+	<img src={{ pic.0 }} height="400">
+	</center>
+	<span class="input input--isao">
+		{% for comment in pic.1 %}
+			{{ comment.0 }}说:{{ comment.1 }}
+			{% endfor %}
+				<input type="text"  id="{{ pic.0 }}"/>
+				<button onclick="comment('{{ pic.0 }}')" class="pbtn3 btn14">评论</button>
+	</span>
+	</br>
+	{% endfor %}
+	<script src="/static/Jquery.js">
+	</script>
+	<script>
+	function comment(pic) {
+		pic1="/Users/zhangxu/PycharmProjects/LivePhotos/photo"+pic;
+				$.get("/comment_photo/",{"pic":pic1,"comment":document.getElementById(pic).value},function (data) {
 
+						alert(data)
 
-{% for pic in pic_list %}
-
-
-    <img src={{ pic.0 }} height="400">
-    </br>
-    {% for comment in pic.1 %}
-        {{ comment.0 }}说:{{ comment.1 }}
-        </br>
-        {% endfor %}
-    </br>
-    <input type="text" id="{{ pic.0 }}"><button onclick="comment('{{ pic.0 }}')">评论</button>
-    </br>
-{% endfor %}
-</center>
-
-<script src="/static/Jquery.js">
-</script>
-<script>
-function comment(pic) {
-    pic1="/Users/zhangxu/PycharmProjects/LivePhotos/photo"+pic;
-        $.get("/comment_photo/",{"pic":pic1,"comment":document.getElementById(pic).value},function (data) {
-
-            alert(data)
-
-        })
-
-
-}
-</script>
+					})
+			}
+	</script>
+</div>
 </body>
 </html>

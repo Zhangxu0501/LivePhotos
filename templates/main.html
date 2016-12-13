@@ -1,40 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html">
+	<link rel="stylesheet" type="text/css" href="/static/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="/static/fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="/static/css/demo.css" />
+	<link rel="stylesheet" type="text/css" href="/static/css/component.css" />
+	<link rel="stylesheet" type="text/css" href="/static/css/button.css" />
     <title>上传图片</title>
 </head>
-<body>
-
-<div >
-
-    <center>
-<form action="/receive/" method="post" enctype="multipart/form-data">
-
-   <input type="file" name="pic"><input type="submit" value="提交">
-
-</form>
-
-        <form action="/add_friend/" method="get">
-        <input type="text" name="friend_name">
-            <input type="submit" value="添加好友">
-        </form>
-
-        </br>
-        <form action="/delete_friend/" method="get">
-        <input type="text" name="friend_name">
-            <input type="submit" value="删除好友">
-        </form>
-
-         </br>
-        <a href="/friend_list/">我的好友</a>
-        </br>
-
-        <a href="/show_photos/">浏览我的照片库</a>
-        </br>
-
-        </center>
-
+<body background="/static/images/1.jpg">
 <div>
+	<header class="codrops-header">
+		<h1>Livephotos <span>*软件工程项目</span></h1>
+	</header>
+	<section class="content bgcolor-8">
+		<form action="/receive/" method="post" enctype="multipart/form-data">
+			<span class="input input--hoshi">
+				<input type="file" name="pic" onmouseover="this.style.borderColor='#86c6f7'" onmouseout="this.style.borderColor='#dcdcdc'" class="btn3 pbtn1">
+			</span>
+			<span class="input input--hoshi">
+				<input type="submit" value="提交" onmouseover="this.style.borderColor='#86c6f7'" onmouseout="this.style.borderColor='#dcdcdc'" class="btn3 pbtn1">
+			</span>
+		</form>
+	</section>
+	<section class="content bgcolor-8">
+		<form action="/add_friend/" method="get">
+			<span class="input input--hoshi">
+					<input class="input__field input__field--hoshi" type="text" name="friend_name" id="input-4">
+					<label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
+						<span class="input__label-content input__label-content--hoshi"></span>
+					</label>
+			</span>
+			<span class="input input--hoshi">
+				<input type="submit" value="添加好友" onmouseover="this.style.borderColor='#86c6f7'" onmouseout="this.style.borderColor='#dcdcdc'" class="btn3 pbtn1">
+			</span>
+		</form>
+		<br>  </br>
+		<form action="/delete_friend/" method="get">
+			<span class="input input--hoshi">
+					<input class="input__field input__field--hoshi" type="text" name="friend_name" id="input-5">
+					<label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
+						<span class="input__label-content input__label-content--hoshi"></span>
+					</label>
+			</span>
+			<span class="input input--hoshi">
+				<input type="submit" value="删除好友" onmouseover="this.style.borderColor='#86c6f7'" onmouseout="this.style.borderColor='#dcdcdc'" class="btn3 pbtn1">
+			</span>
+		</form>
+	</section>
+	<section class="content bgcolor-4">
+		<span class="input input--hoshi">
+			<a href="/friend_list/"  class="btn5" >我的好友</a>
+        </span>
+		<span class="input input--hoshi">
+			<a href="/show_photos/"  class="btn5">浏览我的照片库</a>
+        </span>
+	</section>
+</div>
 </body>
 </html>
